@@ -8,13 +8,13 @@ export class Amp {
         this.denon = new Denon.DenonClient(ip);
     }
 
-    public setTVoutput() {
+    public setTVoutput(): void {
         this.denon.connect().then(() => {
             this.denon.setInput("TV");
         })
     }
 
-    public setSkyOutput() {
+    public setSkyOutput(): void {
         this.denon.connect().then(() => {
             this.denon.setInput("SAT/CBL");
         })

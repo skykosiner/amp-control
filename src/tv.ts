@@ -14,7 +14,7 @@ export class Tv extends EventEmitter {
         this.runContinuousCheck();
     }
 
-    private async runContinuousCheck() {
+    private async runContinuousCheck(): Promise<void> {
         while (true) {
             const tvResp = await this.fetchTvState();
             const state = tvResp.state === "on" ? true : false;
@@ -42,7 +42,7 @@ export class Tv extends EventEmitter {
         return resp.json();
     }
 
-    private sleep(ms: number) {
+    private sleep(ms: number): Promise<void> {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 }

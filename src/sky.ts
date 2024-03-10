@@ -10,7 +10,7 @@ export class Sky extends EventEmitter {
         this.runContinuousCheck();
     }
 
-    private async runContinuousCheck() {
+    private async runContinuousCheck(): Promise<void> {
         while (true) {
             const skyResp = await this.fetchSkyState();
             const newState = this.powerState(skyResp.activeStandby);
