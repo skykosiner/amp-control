@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "denon-client": "^0.2.4",
     "samsung-tv-control": "^1.14.0",
     "sky-q": "^1.0.2"
   },
