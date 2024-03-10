@@ -1,7 +1,7 @@
 import EventEmitter from "events";
 
 export type TvResp = {
-    state: boolean;
+    state: string;
 }
 
 export class Tv extends EventEmitter {
@@ -17,10 +17,11 @@ export class Tv extends EventEmitter {
     private async runContinuousCheck() {
         while (true) {
             const tvResp = await this.fetchTvState();
+            const state = tvResp.state === "on" ? true : false;
 
-            if (this.currentState !== tvResp.state) {
-                this.emit("power", tvResp.state);
-                this.currentState = tvResp.state;
+            if (this.currentState !== state) {
+                this.emit("power", state);
+                this.currentState = state;
             }
 
             await this.sleep(5000);

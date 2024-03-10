@@ -6,11 +6,11 @@ const sky = new Sky("10.0.0.44");
 const tv = new Tv();
 const amp = new Amp("10.0.0.20");
 
-tv.on("power", (state: boolean) => {
+tv.on("power", (tvState: boolean) => {
     sky.on("power", (skyState: boolean) => {
-        if (skyState && state) {
+        if (skyState && tvState) {
             amp.setSkyOutput();
-        } else if (!skyState && state) {
+        } else if (!skyState && tvState) {
             amp.setTVoutput();
         }
     })
